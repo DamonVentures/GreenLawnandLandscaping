@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Lawn & Landscaping LLC | Cincinnati, OH</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep:   #1a5d1a;
+    --green-mid:    #2d8a2d;
+    --green-bright: #5fb85f;
+    --green-light:  #a8e8a8;
+    --yellow:       #d8ff3a;
+    --cream:        #fafdf7;
+    --white:        #ffffff;
+    --text-dark:    #1a2e1a;
+    --text-mid:     #4a5e4a;
+    --text-light:   #8a9a8a;
+  }
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--text-dark);
+    background: var(--cream);
+    overflow-x: hidden;
+  }
+
+/* NAV */
+nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+display: flex; justify-content: space-between; align-items: center;
+padding: 1.1rem 3rem;
+background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
+border-bottom: 1px solid #e0ebe0;
+}
+.nav-logo {
+font-family: ‘Montserrat’, sans-serif; font-weight: 800;
+font-size: 1.15rem; color: var(–green-deep);
+text-decoration: none; letter-spacing: -0.01em;
+}
+.nav-logo span { color: var(–green-bright); }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a {
+color: var(–text-mid); text-decoration: none;
+font-size: 0.88rem; font-weight: 500;
+transition: color 0.2s;
+}
+.nav-links a:hover { color: var(–green-deep); }
+.nav-cta {
+background: var(–green-mid) !important; color: white !important;
+padding: 0.6rem 1.3rem; border-radius: 2rem;
+font-weight: 600 !important; font-size: 0.85rem !important;
+transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(–green-deep) !important; }
+
+/* HERO */
+.hero {
+min-height: 100vh;
+display: grid; grid-template-columns: 1fr 1fr;
+gap: 4rem; align-items: center;
+padding: 8rem 3rem 4rem;
+background: linear-gradient(135deg, #fafdf7 0%, #e8f5e8 60%, #fafdf7 100%);
+position: relative; overflow: hidden;
+}
+.hero::before {
+content: ‘’; position: absolute; top: -100px; right: -100px;
+width: 700px; height: 700px;
+background: radial-gradient(circle, rgba(95,184,95,0.12) 0%, transparent 65%);
+pointer-events: none;
+}
+.hero-left { position: relative; z-index: 1; }
+.hero-badge {
+display: inline-flex; align-items: center; gap: 0.5rem;
+background: rgba(45,138,45,0.1);
+border: 1px solid rgba(45,138,45,0.25);
+border-radius: 2rem; padding: 0.45rem 1.1rem;
+font-size: 0.75rem; letter-spacing: 0.08em;
+color: var(–green-deep); text-transform: uppercase;
+margin-bottom: 1.75rem; font-weight: 600;
+animation: fadeUp 0.7s ease both;
+}
+.hero-badge::before { content: ‘’; width: 6px; height: 6px; background: var(–green-bright); border-radius: 50%; }
+.hero h1 {
+font-family: ‘Montserrat’, sans-serif; font-weight: 900;
+font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+line-height: 1.05; letter-spacing: -0.03em;
+color: var(–green-deep); margin-bottom: 1.5rem;
+animation: fadeUp 0.7s 0.1s ease both;
+}
+.hero h1 em { font-style: normal; color: var(–green-bright); }
+.hero-sub {
+font-size: 1.05rem; color: var(–text-mid);
+line-height: 1.75; max-width: 480px;
+margin-bottom: 2.5rem;
+animation: fadeUp 0.7s 0.2s ease both;
+}
+.hero-actions {
+display: flex; gap: 1rem; flex-wrap: wrap;
+animation: fadeUp 0.7s 0.3s ease both;
+}
+.btn-primary {
+background: var(–green-mid); color: white;
+padding: 1rem 2.2rem; border-radius: 3rem;
+font-weight: 600; font-size: 0.95rem;
+text-decoration: none; display: inline-block;
+transition: background 0.2s, transform 0.2s;
+box-shadow: 0 6px 20px rgba(45,138,45,0.3);
+}
+.btn-primary:hover { background: var(–green-deep); transform: translateY(-2px); }
+.btn-secondary {
+background: transparent; color: var(–green-deep);
+padding: 1rem 2.2rem; border-radius: 3rem;
+border: 2px solid rgba(45,138,45,0.3);
+font-weight: 600; font-size: 0.95rem;
+text-decoration: none; display: inline-block;
+transition: border-color 0.2s, transform 0.2s;
+}
+.btn-secondary:hover { border-color: var(–green-mid); transform: translateY(-2px); }
+
+.hero-right { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; }
+
+/* LOGO RECREATION (SVG art evoking the brand) */
+.logo-card {
+background: white;
+border-radius: 1.5rem;
+padding: 3rem 2rem;
+box-shadow: 0 20px 60px rgba(45,138,45,0.15);
+text-align: center;
+width: 100%; max-width: 420px;
+border: 1px solid rgba(45,138,45,0.1);
+}
+.logo-svg { width: 200px; height: 160px; margin: 0 auto 1rem; }
+.logo-name {
+font-family: ‘Montserrat’, sans-serif;
+font-weight: 900; font-size: 2.2rem;
+color: var(–green-deep); letter-spacing: -0.02em;
+line-height: 0.95;
+}
+.logo-tag {
+font-family: ‘Montserrat’, sans-serif;
+font-size: 0.85rem; font-weight: 600;
+color: var(–green-bright); letter-spacing: 0.15em;
+margin-top: 0.4rem; text-transform: uppercase;
+}
+
+/* TRUST BAR */
+.trust-bar {
+background: var(–green-deep);
+padding: 1.2rem 3rem;
+display: flex; justify-content: center;
+gap: 3.5rem; flex-wrap: wrap;
+}
+.trust-item {
+display: flex; align-items: center; gap: 0.6rem;
+font-size: 0.85rem; color: rgba(255,255,255,0.85);
+font-weight: 500;
+}
+.trust-item .check { color: var(–yellow); font-weight: 700; }
+
+/* SECTIONS */
+section { padding: 6rem 3rem; }
+.section-tag {
+font-size: 0.72rem; letter-spacing: 0.14em;
+color: var(–green-mid); text-transform: uppercase;
+margin-bottom: 0.8rem; font-weight: 700;
+}
+.section-title {
+font-family: ‘Montserrat’, sans-serif; font-weight: 800;
+font-size: clamp(2rem, 4vw, 3rem);
+letter-spacing: -0.02em; line-height: 1.15;
+color: var(–green-deep); max-width: 680px;
+}
+
+/* SERVICES */
+.services-section { background: white; }
+.services-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 1.25rem; margin-top: 3.5rem;
+}
+.service-card {
+background: var(–cream);
+border: 2px solid #e0ebe0;
+border-radius: 1rem; padding: 2rem;
+transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+position: relative; overflow: hidden;
+}
+.service-card:hover {
+border-color: var(–green-bright);
+transform: translateY(-4px);
+box-shadow: 0 12px 32px rgba(45,138,45,0.12);
+}
+.service-icon {
+font-size: 2rem; margin-bottom: 1rem;
+display: inline-flex;
+width: 52px; height: 52px;
+background: rgba(95,184,95,0.12);
+border-radius: 0.75rem;
+align-items: center; justify-content: center;
+}
+.service-name {
+font-family: ‘Montserrat’, sans-serif;
+font-weight: 700; font-size: 1.05rem;
+color: var(–green-deep); margin-bottom: 0.5rem;
+}
+.service-desc {
+font-size: 0.85rem; color: var(–text-mid);
+line-height: 1.65;
+}
+
+/* ABOUT */
+.about-section {
+background: var(–green-deep);
+padding: 6rem 3rem;
+display: grid; grid-template-columns: 1.2fr 1fr;
+gap: 5rem; align-items: center; color: white;
+position: relative; overflow: hidden;
+}
+.about-section::before {
+content: ‘’; position: absolute; top: -100px; right: -100px;
+width: 500px; height: 500px;
+background: radial-gradient(circle, rgba(216,255,58,0.06) 0%, transparent 60%);
+}
+.about-content { position: relative; z-index: 1; }
+.about-content .section-title { color: white; max-width: none; }
+.about-content .section-tag { color: var(–yellow); }
+.about-body {
+font-size: 0.97rem; color: rgba(255,255,255,0.75);
+line-height: 1.85; margin: 1.5rem 0;
+}
+.about-stats {
+display: grid; grid-template-columns: repeat(2, 1fr);
+gap: 2rem; margin-top: 2.5rem; position: relative; z-index: 1;
+}
+.stat-card {
+background: rgba(255,255,255,0.05);
+border: 1px solid rgba(255,255,255,0.1);
+border-radius: 1rem; padding: 1.5rem;
+}
+.stat-num {
+font-family: ‘Montserrat’, sans-serif;
+font-weight: 900; font-size: 2.4rem;
+color: var(–yellow); letter-spacing: -0.02em;
+line-height: 1;
+}
+.stat-label {
+font-size: 0.8rem; color: rgba(255,255,255,0.6);
+margin-top: 0.4rem; letter-spacing: 0.04em;
+}
+
+/* AREAS */
+.areas-section {
+background: var(–cream); text-align: center;
+padding: 5rem 3rem;
+}
+.areas-grid {
+display: flex; flex-wrap: wrap; gap: 0.65rem;
+justify-content: center; margin-top: 2.5rem;
+}
+.chip {
+background: white;
+border: 2px solid #d0e0d0;
+border-radius: 2rem; padding: 0.5rem 1.25rem;
+font-size: 0.85rem; color: var(–text-mid);
+font-weight: 500;
+transition: border-color 0.2s, color 0.2s;
+}
+.chip:hover { border-color: var(–green-bright); color: var(–green-deep); }
+
+/* CTA */
+.cta-section {
+background: linear-gradient(135deg, var(–green-mid) 0%, var(–green-deep) 100%);
+text-align: center; padding: 6rem 3rem;
+position: relative; overflow: hidden;
+}
+.cta-section::before {
+content: ‘’; position: absolute; top: -100px; left: -100px;
+width: 500px; height: 500px;
+background: radial-gradient(circle, rgba(216,255,58,0.08) 0%, transparent 60%);
+}
+.cta-section h2 {
+font-family: ‘Montserrat’, sans-serif; font-weight: 900;
+font-size: clamp(2rem, 5vw, 3.5rem);
+color: white; letter-spacing: -0.02em; line-height: 1.15;
+max-width: 680px; margin: 0 auto 1rem;
+position: relative; z-index: 1;
+}
+.cta-section p {
+color: rgba(255,255,255,0.85);
+font-size: 1.05rem; margin: 0 auto 2.5rem;
+max-width: 460px; position: relative; z-index: 1;
+}
+.cta-buttons {
+display: flex; gap: 1rem; justify-content: center;
+flex-wrap: wrap; position: relative; z-index: 1;
+}
+.btn-yellow {
+background: var(–yellow); color: var(–green-deep);
+padding: 1.1rem 2.5rem; border-radius: 3rem;
+font-weight: 700; font-size: 1rem;
+text-decoration: none; display: inline-block;
+transition: transform 0.2s, opacity 0.2s;
+box-shadow: 0 8px 24px rgba(216,255,58,0.3);
+}
+.btn-yellow:hover { transform: translateY(-2px); opacity: 0.95; }
+.btn-outline-white {
+background: transparent; color: white;
+padding: 1.1rem 2.5rem; border-radius: 3rem;
+border: 2px solid rgba(255,255,255,0.3);
+font-weight: 600; font-size: 1rem;
+text-decoration: none; display: inline-block;
+transition: border-color 0.2s, transform 0.2s;
+}
+.btn-outline-white:hover { border-color: white; transform: translateY(-2px); }
+
+/* FOOTER */
+footer {
+background: #0d2e0d; padding: 2.5rem 3rem;
+display: flex; justify-content: space-between;
+align-items: center; flex-wrap: wrap; gap: 1rem;
+}
+.footer-logo {
+font-family: ‘Montserrat’, sans-serif; font-weight: 800;
+color: white; font-size: 1rem; text-decoration: none;
+}
+.footer-info { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+.footer-contact {
+display: flex; gap: 1.5rem; flex-wrap: wrap;
+}
+.footer-contact a {
+color: var(–green-light); text-decoration: none;
+font-size: 0.88rem; font-weight: 500;
+}
+
+/* DEMO BANNER */
+.demo-bar {
+background: #111; color: #aaa;
+text-align: center; padding: 0.5rem;
+font-size: 0.7rem; letter-spacing: 0.05em;
+}
+.demo-bar a { color: var(–green-bright); text-decoration: none; }
+
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+nav { padding: 1rem 1.5rem; }
+.nav-links { display: none; }
+.hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; gap: 2rem; }
+.about-section { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.5rem; }
+section, .areas-section, .cta-section { padding: 4rem 1.5rem; }
+.trust-bar { gap: 1.5rem; padding: 1rem 1.5rem; }
+footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+}
+</style>
+
+</head>
+<body>
+
+<div class="demo-bar">Demo site by <a href="https://damonventures.com">Damon Ventures</a> · Free preview for Green Lawn & Landscaping LLC</div>
+
+<nav>
+  <a href="#" class="nav-logo">Green Lawn <span>& Landscaping</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#areas">Service Areas</a></li>
+    <li><a href="tel:5134647585" class="nav-cta">Call (513) 464-7585</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">📍 Cincinnati, OH · Now Booking 2026</div>
+    <h1>Quality lawn care<br>at <em>fair prices.</em></h1>
+    <p class="hero-sub">Locally owned and operated lawn care and landscaping serving Cincinnati and surrounding areas. Reliable service, honest pricing, and a yard you'll be proud of.</p>
+    <div class="hero-actions">
+      <a href="tel:5134647585" class="btn-primary">📞 Call (513) 464-7585</a>
+      <a href="#services" class="btn-secondary">See Services</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="logo-card">
+      <svg class="logo-svg" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+        <!-- Tree -->
+        <ellipse cx="60" cy="50" rx="32" ry="32" fill="#5fb85f"/>
+        <ellipse cx="60" cy="42" rx="24" ry="24" fill="#7ec87e"/>
+        <rect x="56" y="75" width="8" height="22" fill="#3d6b1f"/>
+        <!-- Hills/leaves -->
+        <path d="M 0 110 Q 50 90, 100 100 T 200 110 L 200 160 L 0 160 Z" fill="#2d8a2d"/>
+        <path d="M 0 120 Q 50 105, 100 115 T 200 120 L 200 160 L 0 160 Z" fill="#5fb85f" opacity="0.8"/>
+        <!-- Leaf stripes -->
+        <path d="M 90 105 Q 130 100, 170 108" stroke="#1a5d1a" stroke-width="2" fill="none" opacity="0.4"/>
+        <path d="M 100 112 Q 140 108, 180 116" stroke="#1a5d1a" stroke-width="2" fill="none" opacity="0.4"/>
+      </svg>
+      <div class="logo-name">GREEN</div>
+      <div class="logo-tag">— Lawn & Landscaping —</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+
+<div class="trust-bar">
+  <div class="trust-item"><span class="check">✓</span> Locally Owned</div>
+  <div class="trust-item"><span class="check">✓</span> Free Estimates</div>
+  <div class="trust-item"><span class="check">✓</span> Residential & Commercial</div>
+  <div class="trust-item"><span class="check">✓</span> Reliable & On Time</div>
+</div>
+
+<!-- SERVICES -->
+
+<section id="services" class="services-section">
+  <div class="section-tag">Our Services</div>
+  <h2 class="section-title">Everything your lawn needs in one call.</h2>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🌿</div>
+      <div class="service-name">Mowing</div>
+      <div class="service-desc">Clean, even cuts on a regular schedule. Your lawn will look sharp every week.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✂️</div>
+      <div class="service-name">Edging & Trimming</div>
+      <div class="service-desc">Crisp edges along sidewalks, driveways, and beds for a polished finish.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌳</div>
+      <div class="service-name">Brush Removal</div>
+      <div class="service-desc">Overgrown brush, fallen branches, and unwanted vegetation cleared out fast.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🍂</div>
+      <div class="service-name">Seasonal Clean Ups</div>
+      <div class="service-desc">Spring and fall cleanup to get your yard ready for the season ahead.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🪨</div>
+      <div class="service-name">Mulch & Rock Installation</div>
+      <div class="service-desc">Fresh mulch and decorative rock installed to protect beds and boost curb appeal.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌳</div>
+      <div class="service-name">Shrub & Hedge Trimming</div>
+      <div class="service-desc">Professional shaping that keeps your shrubs and hedges looking their best.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🌱</div>
+      <div class="service-name">Sod Installation</div>
+      <div class="service-desc">Brand new lawns installed quickly and professionally for instant results.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📞</div>
+      <div class="service-name">Custom Requests</div>
+      <div class="service-desc">Don't see what you need? Give us a call — we'll figure out the right plan for your yard.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="about-section">
+  <div class="about-content">
+    <div class="section-tag">About Us</div>
+    <h2 class="section-title">Locally owned. Honestly priced. Reliably done.</h2>
+    <p class="about-body">Green Lawn & Landscaping is a Cincinnati-based lawn care and landscaping company built on showing up when we say we will and doing quality work for a fair price. No hidden fees, no surprises — just a yard that looks great.</p>
+    <p class="about-body">We work with both homeowners and commercial clients across the Cincinnati area. Whether it's weekly mowing or a full seasonal makeover, we'll treat your property like it's our own.</p>
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Locally Owned</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">2026</div>
+        <div class="stat-label">Now Booking</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">Free</div>
+        <div class="stat-label">Estimates</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">Both</div>
+        <div class="stat-label">Residential & Commercial</div>
+      </div>
+    </div>
+  </div>
+  <div style="position: relative; z-index: 1;">
+    <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 1.5rem; padding: 2.5rem;">
+      <div style="font-size: 0.72rem; letter-spacing: 0.14em; color: var(--yellow); text-transform: uppercase; margin-bottom: 1rem; font-weight: 700;">Quick Quote</div>
+      <h3 style="font-family: 'Montserrat'; font-weight: 800; font-size: 1.6rem; color: white; line-height: 1.2; margin-bottom: 1rem;">Ready for your free estimate?</h3>
+      <p style="font-size: 0.92rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 2rem;">Text or call us anytime. We'll give you a straightforward quote with no obligation.</p>
+      <a href="tel:5134647585" style="display: block; background: var(--yellow); color: var(--green-deep); padding: 1rem; border-radius: 2rem; font-weight: 700; font-size: 1rem; text-align: center; text-decoration: none; margin-bottom: 0.75rem;">📞 (513) 464-7585</a>
+      <a href="sms:5134647585" style="display: block; background: transparent; color: white; padding: 1rem; border-radius: 2rem; border: 2px solid rgba(255,255,255,0.2); font-weight: 600; font-size: 0.95rem; text-align: center; text-decoration: none;">💬 Text Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+
+<section id="areas" class="areas-section">
+  <div class="section-tag">Service Areas</div>
+  <h2 class="section-title" style="margin: 0 auto 0.5rem; text-align: center;">Serving Cincinnati & Surrounding Areas</h2>
+  <p style="color: var(--text-light); font-size: 0.9rem;">Not sure if we cover your area? Just give us a call.</p>
+  <div class="areas-grid">
+    <span class="chip">Cincinnati</span>
+    <span class="chip">West Chester</span>
+    <span class="chip">Liberty Township</span>
+    <span class="chip">Mason</span>
+    <span class="chip">Fairfield</span>
+    <span class="chip">Hamilton</span>
+    <span class="chip">Blue Ash</span>
+    <span class="chip">Sharonville</span>
+    <span class="chip">Springdale</span>
+    <span class="chip">Loveland</span>
+  </div>
+</section>
+
+<!-- CTA -->
+
+<section class="cta-section">
+  <h2>Now booking for the 2026 season.</h2>
+  <p>Spring is right around the corner. Call or text now to lock in your spot — both residential and commercial clients welcome.</p>
+  <div class="cta-buttons">
+    <a href="tel:5134647585" class="btn-yellow">📞 Call (513) 464-7585</a>
+    <a href="mailto:greenlawnandlandscaping513@gmail.com" class="btn-outline-white">✉️ Email Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <a href="#" class="footer-logo">Green Lawn & Landscaping LLC</a>
+  <div class="footer-info">Cincinnati, OH · Locally Owned · 2026</div>
+  <div class="footer-contact">
+    <a href="tel:5134647585">(513) 464-7585</a>
+    <a href="mailto:greenlawnandlandscaping513@gmail.com">Email</a>
+  </div>
+</footer>
+
+</body>
+</html>
